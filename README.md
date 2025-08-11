@@ -24,3 +24,7 @@
    ```
    php artisan make:model Example
    ```
+7. To make model and migration
+   ```
+   php artisan make:model ModelName --migration 
+   ```
