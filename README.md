@@ -28,3 +28,7 @@
    ```
    php artisan make:model ModelName --migration 
    ```
+8. To play seeder
+```
+php artisan db:seed
+```
