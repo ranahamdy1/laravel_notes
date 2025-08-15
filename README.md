@@ -36,3 +36,21 @@
    ```
    php artisan db:seed --class=NameTableSeeder
    ```
+10. To create Authentication
+    ```
+    composer require laravel/ui
+    ```
+    then for Bootstrap:
+    ```
+    php artisan ui bootstrap --auth
+    ```
+    then
+    ```
+    npm install
+    ```
+    then
+    ```
+    npm run dev
+    ```
+
+    
