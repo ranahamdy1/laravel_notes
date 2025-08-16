@@ -24,19 +24,23 @@
    ```
    php artisan make:model Example
    ```
-7. To make model and migration
+7. To make controller:
+   ```
+   php artisan make:controller NameController
+   ```
+8. To make model and migration
    ```
    php artisan make:model ModelName --migration 
    ```
-8. To play all seeder
+9. To play all seeder
    ```
    php artisan db:seed
    ```
-9. To play one seeder
+10. To play one seeder
    ```
    php artisan db:seed --class=NameTableSeeder
    ```
-10. To create Authentication
+11. To create Authentication
     ```
     composer require laravel/ui
     ```
