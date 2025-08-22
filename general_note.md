@@ -7,6 +7,23 @@
 - one product can be found in many cart (one to many)
 - cart has one product (one to one)
 - we take big relation (one to many)
+- إذن في Laravel Models:
+```
+in Cart.php:
+public function product()
+{
+    return $this->belongsTo(Product::class);
+}
+```
+```
+in Product.php:
+public function carts()
+{
+    return $this->hasMany(Cart::class);
+}
+```
+- ال belongsTo يتحط في الـ Model اللي بيحتوي على الـ foreign key.
+- ال hasMany يتحط في الـ Model اللي بيتم الإشارة ليه بالـ foreign key.
 
 ## ⚡ 2-  Eager Loading
 - في Laravel معناها إنك تجيب البيانات الأساسية مع البيانات المرتبطة بيها في نفس الاستعلام بدل ما تعمل استعلام لكل علاقة لوحدها.
