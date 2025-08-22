@@ -32,15 +32,19 @@
    ```
    php artisan make:model ModelName --migration 
    ```
-9. To play all seeder
+9. To edit migration with steps (remove last migration for ex)
+   ```
+   php artisan migrate:rollback --step=1
+   ```
+10. To play all seeder
    ```
    php artisan db:seed
    ```
-10. To play one seeder
+11. To play one seeder
    ```
    php artisan db:seed --class=NameTableSeeder
    ```
-11. To create Authentication
+12. To create Authentication
     ```
     composer require laravel/ui
     ```
