@@ -57,3 +57,18 @@ public function product()
 ```
 Session::put('user_name', 'ahmed');
 ```
+## ⚡ 4-  Middleware
+- الـ Middleware هو طبقة وسيطة بين الطلب (Request) و الاستجابة (Response)، تُستخدم لتنفيذ منطق معين قبل أن يصل الطلب إلى Controller أو قبل أن يُرسل الرد إلى المستخدم.
+```
+class CheckAge
+{
+    public function handle(Request $request, Closure $next)
+    {
+        if ($request->age < 18) {
+            return redirect('home');
+        }
+        return $next($request);
+    }
+}
+```
+- وبنسجله بقي في ال kernel.php
