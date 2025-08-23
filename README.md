@@ -44,7 +44,11 @@
    ```
    php artisan db:seed --class=NameTableSeeder
    ```
-12. To create Authentication
+12. To create Middleware
+   ```
+   php artisan make:middleware NameOfMiddleware
+   ```
+13. To create Authentication
     ```
     composer require laravel/ui
     ```
