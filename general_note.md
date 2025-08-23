@@ -52,3 +52,8 @@ public function product()
     return $this->belongsTo(Product::class);
 }
 ```
+## ⚡ 3-  Session
+- هي آلية لتخزين البيانات بين الطلبات (HTTP Requests) بحيث تظل متاحة للمستخدم طوال فترة الجلسة.
+```
+Session::put('user_name', 'ahmed');
+```
