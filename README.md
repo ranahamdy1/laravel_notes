@@ -68,5 +68,9 @@
     ```
     npm run dev
     ```
+15. To open ngrok
+   ```
+   ngrok http 8000
+   ```
 
     
