@@ -72,3 +72,16 @@ class CheckAge
 }
 ```
 - وبنسجله بقي في ال kernel.php
+## ⚡ 5- Facade
+- هو class static بيوفرلك طريقة سهلة إنك تستعمل الخدمات (services) أو الـ classes اللي في الـ Service Container من غير ما تحتاج تعمل new أو تعمل Dependency Injection.
+- بدل ما تكتب:
+```
+use Illuminate\Support\Facades\App;
+
+$app = App::make('cache');
+$app->put('name', 'Rana', 22);
+```
+- تقدر تستخدم Facade كده:
+```
+Cache::put('name', 'Rana', 22);
+```
