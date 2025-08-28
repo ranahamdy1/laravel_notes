@@ -112,9 +112,12 @@ public function students()
 
 - cart need product
 - cart has forign key(product_id)
-- one product can be found in many cart (one to many)
+- one product can be found in many cart (one to many) 
 - cart has one product (one to one)
 - we take big relation (one to many)
+#### 1- كل Cart فيه منتج واحد بس → من جهة Cart = belongsTo(Product).
+#### 2- نفس المنتج ممكن يكون موجود في أكتر من Cart → من جهة Product = hasMany(Cart).
+
 - إذن في Laravel Models:
 ```
 in Cart.php:
