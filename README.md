@@ -40,19 +40,23 @@
    ```
    php artisan make:migration add_nameEN_to_products
    ```
-11. To play all seeder
+11. To create seeder
+   ```
+   php artisan make:seeder NameTableSeeder
+   ```
+12. To play all seeder
    ```
    php artisan db:seed
    ```
-12. To play one seeder
+13. To play one seeder
    ```
    php artisan db:seed --class=NameTableSeeder
    ```
-13. To create Middleware
+14. To create Middleware
    ```
    php artisan make:middleware NameOfMiddleware
    ```
-14. To create Authentication
+15. To create Authentication
     ```
     composer require laravel/ui
     ```
@@ -68,7 +72,7 @@
     ```
     npm run dev
     ```
-15. To open ngrok
+16. To open ngrok
    ```
    ngrok http 8000
    ```
