@@ -56,7 +56,11 @@
    ```
    php artisan make:middleware NameOfMiddleware
    ```
-15. To create Authentication
+15. To create Request
+   ```
+   php artisan make:request StoreUserRequest
+   ```
+16. To create Authentication
     ```
     composer require laravel/ui
     ```
@@ -72,7 +76,7 @@
     ```
     npm run dev
     ```
-16. To open ngrok
+17. To open ngrok
    ```
    ngrok http 8000
    ```
