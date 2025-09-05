@@ -209,3 +209,16 @@ php artisan make:controller PostController --resource
 ```
 Route::resource('posts', PostController::class);
 ```
+## ⚡ 10-  Query Scopes 
+- هي طريقة لتعريف شروط جاهزة لإعادة استخدامها على استعلامات الـ Eloquent، بدل ما تكتب نفس الشرط في كل مرة
+- ببساطة هي فلتر أو شرط جاهز نقدر نطبقه على الـ Model بسهولة
+```
+// Scope لإحضار البوستات بواسطة كاتب معين
+    public function scopeByAuthor($query, $authorId)
+    {
+        return $query->where('author_id', $authorId);
+    }
+// الاستخدام
+$authorPosts = Post::byAuthor(5)->get();
+```
+- لاحظ: الاسم يبدأ بـ scope، لكن عند الاستخدام نحذف scope ونكتب فقط ما بعدها (byAuthor).
