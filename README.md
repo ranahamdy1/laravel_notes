@@ -52,15 +52,19 @@
    ```
    php artisan db:seed --class=NameTableSeeder
    ```
-14. To create Middleware
+14. To create factory
+   ```
+   php artisan make:factory UserFactory --model=User
+   ```
+15. To create Middleware
    ```
    php artisan make:middleware NameOfMiddleware
    ```
-15. To create Request
+16. To create Request
    ```
    php artisan make:request StoreUserRequest
    ```
-16. To create Authentication
+17. To create Authentication
     ```
     composer require laravel/ui
     ```
@@ -76,7 +80,7 @@
     ```
     npm run dev
     ```
-17. To open ngrok
+18. To open ngrok
    ```
    ngrok http 8000
    ```
