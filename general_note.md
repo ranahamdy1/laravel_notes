@@ -200,3 +200,12 @@ Cache::put('name', 'Rana', 22);
 - هو وسيلة لإدخال بيانات تجريبية أو افتراضية داخل قاعدة البيانات بشكل تلقائي أثناء التطوير أو الاختبار.
 ## ⚡ 8- factory -> مولد بيانات
 - تُستخدم لتوليد بيانات تجريبية (Dummy Data) بشكل تلقائي، وغالبًا يتم استخدامها مع Seeders أثناء التطوير أو الاختبار ومع الموديل.
+## ⚡ 9- Resource Controllers
+- هو طريقة سريعة وسهلة لإنشاء Controller يدعم كل العمليات الأساسية للـ CRUD (Create, Read, Update, Delete) بدون كتابة كل دالة يدوياً
+```
+php artisan make:controller PostController --resource
+```
+- في ملف routes/web.php:
+```
+Route::resource('posts', PostController::class);
+```
