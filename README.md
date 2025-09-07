@@ -80,7 +80,15 @@
     ```
     npm run dev
     ```
-18. To open ngrok
+18. To create the migration for the notifications table:
+   ```
+   php artisan notifications:table
+   ```
+19. To create a new Notification class:
+   ```
+   php artisan make:notification CreateStudent 
+   ```
+20. To open ngrok
    ```
    ngrok http 8000
    ```
