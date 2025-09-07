@@ -222,3 +222,6 @@ Route::resource('posts', PostController::class);
 $authorPosts = Post::byAuthor(5)->get();
 ```
 - لاحظ: الاسم يبدأ بـ scope، لكن عند الاستخدام نحذف scope ونكتب فقط ما بعدها (byAuthor).
+## ⚡ 11-  Trait
+- عبارة عن وسيلة لإعادة استخدام الكود بين الكلاسات
+- بيشبه الـ "mixin" → يعني تقدر تكتب دوال (methods) في ملف واحد وتستخدمها في أي كلاس تاني عن طريق use.
