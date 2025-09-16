@@ -233,3 +233,23 @@ $authorPosts = Post::byAuthor(5)->get();
 ```
 php artisan make:observer UserObserver --model=User
 ```
+## ⚡ 13-  Eloquent ORM
+- هو الـ Object Relational Mapper الافتراضي في Laravel.
+- معناه ببساطة: بدل ما تكتب SQL Queries طويلة وصعبة، تقدر تتعامل مع قاعدة البيانات باستخدام كائنات (Objects) و Models في Laravel.
+- هو طبقة وسيطة بتخلي التعامل مع الجداول كأنه تعامل مع كائنات PHP.
+- EX:
+- 📌 إضافة مستخدم جديد
+```php
+$user = new User();
+$user->name = "Ahmed";
+$user->email = "ahmed@example.com";
+$user->password = bcrypt("123456");
+$user->save();
+```
+- ممكن تستخدم Eloquent بطريقة مرنة زي الـ Query Builder:
+```php
+$users = User::where('active', 1)
+             ->orderBy('created_at', 'desc')
+             ->take(10)
+             ->get();
+```
