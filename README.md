@@ -7,6 +7,8 @@
 2. To create a new Laravel project by running:
    ```
    laravel new new_project_name
+   OR
+   composer create-project "laravel/laravel:^10.0" example-app
    ```
 3. To start the Server
    ```
