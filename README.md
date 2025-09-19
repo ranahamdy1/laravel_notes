@@ -11,7 +11,7 @@
    composer create-project "laravel/laravel:^10.0" example-app
    
    then in cmd to open project in php:
-   phpstorm .
+   phpstorm example-app
    ```
 3. To start the Server
    ```
