@@ -276,3 +276,5 @@ $users = User::where('active', 1)
 // جلب المستخدم الحالي:
 $admin = Auth::guard('admin')->user();
 ```
+## ⚡ 16-  Spatie package
+- باكدج لل permissions مثلا لل admin و ال user ...
