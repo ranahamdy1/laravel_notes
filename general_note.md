@@ -276,5 +276,8 @@ $users = User::where('active', 1)
 // جلب المستخدم الحالي:
 $admin = Auth::guard('admin')->user();
 ```
-## ⚡ 16-  Spatie package
+## ⚡ 17-  Spatie package
 - باكدج لل permissions مثلا لل admin و ال user ...
+## ⚡ 18-  $fillable & $guarded
+- $fillable : defines which fields are allowed for mass assignment (هيسمح إنك تضيف أو تحدّث البيانات لهذه الحقول فقط)
+- $guarded : defines which fields are NOT allowed for mass assignment. (يمنع فقط الحقول اللي هنا، والباقي مسموح)
