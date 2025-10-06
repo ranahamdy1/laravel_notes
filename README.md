@@ -33,43 +33,47 @@
    ```
    php artisan make:controller NameController
    ```
-8. To make model and migration
+8. To make controller resource (Contains all basic functions automatically create,...):
+   ```
+   php artisan make:controller NameController -r
+   ```
+9. To make model and migration
    ```
    php artisan make:model ModelName --migration 
    ```
-9. To edit migration with steps (remove last migration for ex)
+10. To edit migration with steps (remove last migration for ex)
    ```
    php artisan migrate:rollback --step=1
    ```
-10. To add column to an existing migration (products for ex)
+11. To add column to an existing migration (products for ex)
    ```
    php artisan make:migration add_nameEN_to_products
    ```
-11. To create seeder
+12. To create seeder
    ```
    php artisan make:seeder NameTableSeeder
    ```
-12. To play all seeder
+13. To play all seeder
    ```
    php artisan db:seed
    ```
-13. To play one seeder
+14. To play one seeder
    ```
    php artisan db:seed --class=NameTableSeeder
    ```
-14. To create factory
+15. To create factory
    ```
    php artisan make:factory UserFactory --model=User
    ```
-15. To create Middleware
+16. To create Middleware
    ```
    php artisan make:middleware NameOfMiddleware
    ```
-16. To create Request
+17. To create Request
    ```
    php artisan make:request StoreUserRequest
    ```
-17. To create Authentication
+18. To create Authentication
     ```
     composer require laravel/ui
     ```
@@ -85,15 +89,15 @@
     ```
     npm run dev
     ```
-18. To create the migration for the notifications table:
+19. To create the migration for the notifications table:
    ```
    php artisan notifications:table
    ```
-19. To create a new Notification class:
+20. To create a new Notification class:
    ```
    php artisan make:notification CreateStudent 
    ```
-20. To open ngrok
+21. To open ngrok
    ```
    ngrok http 8000
    ```
