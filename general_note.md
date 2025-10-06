@@ -281,3 +281,56 @@ $admin = Auth::guard('admin')->user();
 ## ⚡ 18-  $fillable & $guarded
 - $fillable : defines which fields are allowed for mass assignment (هيسمح إنك تضيف أو تحدّث البيانات لهذه الحقول فقط)
 - $guarded : defines which fields are NOT allowed for mass assignment. (يمنع فقط الحقول اللي هنا، والباقي مسموح)
+
+## ⚡ 19-  API Resource
+- بدل ما ترجع البيانات كما هي من قاعدة البيانات، يمكنك التحكم في شكلها النهائي الذي سيراه المستخدم أو التطبيق.
+- مثلا فيه بيانات مثل:
+```php
+{
+  "id": 1,
+  "name": "Phones",
+  "slug": "phones",
+  "status": 1,
+  "created_at": "2025-10-07T12:00:00",
+  "updated_at": "2025-10-07T12:30:00"
+}
+
+```
+- لكن أنت مش عايز ترجع كل الحقول، فقط تريد (id, name, status)
+- تستخدم الأمر التالي:
+```php
+php artisan make:resource CategoryResource
+```
+- افتح الملف وعدّله بهذا الشكل:
+```php
+class CategoryResource extends JsonResource
+{
+    public function toArray(Request $request): array
+    {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'status' => $this->status ? 'Active' : 'Archived',
+        ];
+    }
+}
+
+```
+- في الـ Controller يمكنك استخدامه هكذا:
+```php
+class CategoriesController extends Controller
+{
+    public function index()
+    {
+        $categories = Category::all();
+        return CategoryResource::collection($categories);
+    }
+
+    public function show($id)
+    {
+        $category = Category::findOrFail($id);
+        return new CategoryResource($category);
+    }
+}
+
+```
