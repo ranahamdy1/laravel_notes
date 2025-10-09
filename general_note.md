@@ -334,3 +334,12 @@ class CategoriesController extends Controller
 }
 
 ```
+## ⚡ 20-
+```php
+php artisan storage:link
+```
+- هو بيعمل رابط رمزي (symbolic link) بين مجلد
+storage/app/public
+و
+public/storage
+- يعني أي ملف ترفعه إلى storage/app/public، يقدر المستخدم يوصل له من خلال الرابط العام
