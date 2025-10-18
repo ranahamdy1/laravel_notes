@@ -368,3 +368,22 @@ public/storage
 - ال Entity: تمثل الكيان الحقيقي في النظام.
 > العلاقات بين الطبقات اتجاه واحد فقط (من الأعلى للأسفل)، يعني الـController يعتمد على الـService، والـService يعتمد على الـRepository، لكن الـRepository ما يعرفش عن الـService أو الـController.
 
+## ⚡ 23- Resource Controllers
+- هي نوع خاص من الـControllers يوفر سبع دوال جاهزة للتعامل مع CRUD (إنشاء – قراءة – تحديث – حذف).
+```
+php artisan make:controller UserController --resource
+```
+- يحتوي على:
+```php
+public function index()   // عرض كل العناصر
+public function create()  // عرض صفحة الإنشاء
+public function store()   // حفظ عنصر جديد
+public function show($id) // عرض عنصر واحد
+public function edit($id) // عرض صفحة التعديل
+public function update(Request $request, $id) // تحديث
+public function destroy($id) // حذف
+```
+- في routes/web.php:
+```
+Route::resource('users', UserController::class);
+```
