@@ -387,3 +387,5 @@ public function destroy($id) // حذف
 ```
 Route::resource('users', UserController::class);
 ```
+## ⚡ 24- Soft Deletes
+- بدل ما يتم مسح السجل من قاعدة البيانات نهائيًا، Laravel بيحط تاريخ الحذف في عمود deleted_at، وبكده يعتبر السجل محذوف ظاهريًا لكنه موجود فعلًا في قاعدة البيانات.
