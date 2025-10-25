@@ -389,3 +389,6 @@ Route::resource('users', UserController::class);
 ```
 ## ⚡ 24- Soft Deletes
 - بدل ما يتم مسح السجل من قاعدة البيانات نهائيًا، Laravel بيحط تاريخ الحذف في عمود deleted_at، وبكده يعتبر السجل محذوف ظاهريًا لكنه موجود فعلًا في قاعدة البيانات.
+## ⚡ 25- explode & implode
+- 1-ال explode : بتحول ال Array الي String
+- 1-ال implode : بتحول ال String الي Array
