@@ -41,39 +41,43 @@
    ```
    php artisan make:model ModelName --migration 
    ```
-10. To edit migration with steps (remove last migration for ex)
+10. To create migration of notification
+   ```
+  php artisan notification:table
+   ```
+11. To edit migration with steps (remove last migration for ex)
    ```
    php artisan migrate:rollback --step=1
    ```
-11. To add column to an existing migration (products for ex)
+12. To add column to an existing migration (products for ex)
    ```
    php artisan make:migration add_nameEN_to_products
    ```
-12. To create seeder
+13. To create seeder
    ```
    php artisan make:seeder NameTableSeeder
    ```
-13. To play all seeder
+14. To play all seeder
    ```
    php artisan db:seed
    ```
-14. To play one seeder
+15. To play one seeder
    ```
    php artisan db:seed --class=NameTableSeeder
    ```
-15. To create factory
+16. To create factory
    ```
    php artisan make:factory UserFactory --model=User
    ```
-16. To create Middleware
+17. To create Middleware
    ```
    php artisan make:middleware NameOfMiddleware
    ```
-17. To create Request
+18. To create Request
    ```
    php artisan make:request StoreUserRequest
    ```
-18. To create Authentication
+19. To create Authentication
     ```
     composer require laravel/ui
     ```
@@ -89,15 +93,15 @@
     ```
     npm run dev
     ```
-19. To create the migration for the notifications table:
+20. To create the migration for the notifications table:
    ```
    php artisan notifications:table
    ```
-20. To create a new Notification class:
+21. To create a new Notification class:
    ```
    php artisan make:notification CreateStudent 
    ```
-21. To open ngrok
+22. To open ngrok
    ```
    ngrok http 8000
    ```
