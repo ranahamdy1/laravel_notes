@@ -431,3 +431,6 @@ DB::table('users')->insert([
     'email' => 'ahmed@example.com'
 ]);
 ```
+## ⚡ 28- Fortify package
+- باكدج كويسه لما يكون عندي users and admins
+- نظام المصادقة (Authentication) 
