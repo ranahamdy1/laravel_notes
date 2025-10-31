@@ -399,3 +399,35 @@ Route::resource('users', UserController::class);
 php artisan tinker
 ```
 - جرب اي حاجه بقي وفي الاخر exit
+## ⚡ 27- Eloquent ORM و Query Builder
+1- ال Eloquent ORM : هو نظام ORM مدمج في Laravel يسمح لك بالتعامل مع قاعدة البيانات باستخدام الكائنات (Objects) بدلًا من كتابة SQL بشكل مباشر.
+- يعني كل جدول في قاعدة البيانات بيكون له Model يمثل البيانات فيه، وكل صف (Row) بيكون كائن (Object) من هذا الموديل.
+- يعني دي بتكون مع الموديل USER
+```
+// استرجاع كل المستخدمين
+$users = User::all();
+
+// استرجاع مستخدم معين
+$user = User::find(1);
+
+// إضافة مستخدم جديد
+$user = new User();
+$user->name = 'Ahmed';
+$user->email = 'ahmed@example.com';
+$user->save();
+```
+2- ال Query Builder : هو أداة تانية في Laravel تتيح لك كتابة استعلامات SQL باستخدام PHP، لكن بدون التعامل مع الموديلات أو الكائنات.
+- دي بتكون مع ال tables يعني DB::table('users') 
+```
+// استرجاع كل المستخدمين
+$users = DB::table('users')->get();
+
+// استرجاع مستخدم معين
+$user = DB::table('users')->where('id', 1)->first();
+
+// إضافة مستخدم جديد
+DB::table('users')->insert([
+    'name' => 'Ahmed',
+    'email' => 'ahmed@example.com'
+]);
+```
