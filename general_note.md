@@ -434,3 +434,9 @@ DB::table('users')->insert([
 ## ⚡ 28- Fortify package
 - باكدج كويسه لما يكون عندي users and admins
 - نظام المصادقة (Authentication) 
+## ⚡ 29- Cache & Session
+![Cache_Session](images/cache.png)
+- مثال: في تطبيق تحويل عملات:
+- ال Session: ممكن تخزن فيها آخر عملة اختارها المستخدم
+- ال Cache: ممكن تخزن فيها سعر الدولار مقابل الجنيه لمدة 24 ساعة لتقليل استعلامات الـ API.
+
