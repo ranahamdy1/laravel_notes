@@ -390,8 +390,8 @@ Route::resource('users', UserController::class);
 ## ⚡ 24- Soft Deletes
 - بدل ما يتم مسح السجل من قاعدة البيانات نهائيًا، Laravel بيحط تاريخ الحذف في عمود deleted_at، وبكده يعتبر السجل محذوف ظاهريًا لكنه موجود فعلًا في قاعدة البيانات.
 ## ⚡ 25- explode & implode
-- 1-ال explode : بتحول ال Array الي String
-- 1-ال implode : بتحول ال String الي Array
+- 1-ال explode : بتحول ال String الي Array
+- 2-ال implode : بتحول ال Array الي String
 ## ⚡ 26- Tinker
 - هو REPL (Read–Eval–Print Loop) مبني على PsySH مدمج مع Laravel. يخلّيك تكتب أوامر PHP وتنفذها فورًا داخل بيئة التطبيق (مع Models، Facades، والـ container). مفيد للتجارب السريعة، تعديل بيانات، اختبار كود، أو تنفيذ أوامر صغيرة بدون إنشاء ملفات مؤقتة.
 - يعتبر ذي postman بس كونسول (حاجه سريعه كده) 
