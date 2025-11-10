@@ -101,6 +101,19 @@ echo strtoupper($text)."<br>";
 echo strtolower($text)."<br>";
 echo strlen($text)."<br>";
 
+
+//if and else condition
+$a=1;
+if($a>=0)
+{
+    echo "true"."<br>";
+}else{
+    echo "false"."<br>";
+}
+
+
+
+
 //-------------------------
 
 //
