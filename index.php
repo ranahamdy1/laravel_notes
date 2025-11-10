@@ -126,6 +126,20 @@ echo "<br>";
 echo 2<=> 2; //0
 echo "<br>";
 echo 2<=> 1; //1
+echo "<br>";
+
+//switch Statement
+$day = "Monday";
+switch ($day) {
+    case "Monday":
+        echo "Start of the work week.";
+        break;
+    case "Friday":
+        echo "Almost the weekend.";
+        break;
+    default:
+        echo "Just another day.";
+}
 
 
 //-------------------------
