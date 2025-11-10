@@ -44,6 +44,23 @@ function calc2(...$args)
 $value= calc2(2, 3,6);
 var_dump($value)."<br>";
 
+//Local , Global , Static Scope In Function
+$x=2;
+$y=3;
+function calc3()
+{
+    global $x;
+    echo $x."<br>";
+    //=
+    echo $GLOBALS['x']."<br>";
+
+    static $y = 0;
+    echo $y."<br>";
+    $y++;
+}
+calc3();
+//calc3();
+//calc3();
 
 //-------------------------
 
