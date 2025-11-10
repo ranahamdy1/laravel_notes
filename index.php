@@ -111,7 +111,13 @@ if($a>=0)
     echo "false"."<br>";
 }
 
-
+//short hand Ternary and null coalescing operator
+$b = 1;
+//short hand
+echo $b == 1 ? "true" : "false";
+echo "<br>";
+//short hand if
+echo $b ??"true";
 
 
 //-------------------------
