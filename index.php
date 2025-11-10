@@ -118,6 +118,14 @@ echo $b == 1 ? "true" : "false";
 echo "<br>";
 //short hand if
 echo $b ??"true";
+echo "<br>";
+
+//spaceship operator
+echo 1<=> 2; //-1
+echo "<br>";
+echo 2<=> 2; //0
+echo "<br>";
+echo 2<=> 1; //1
 
 
 //-------------------------
