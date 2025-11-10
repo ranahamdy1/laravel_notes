@@ -28,7 +28,9 @@ $g->name = 'name';
 echo $g->name. "<br>";
 
 $d=['a','b','c'];
-var_dump($d)."<br>";
+var_dump($d);
+
+echo "<br>";
 
 //custom functions
 function calc($val1, $val2)
@@ -42,7 +44,9 @@ function calc2(...$args)
     return $args;
 }
 $value= calc2(2, 3,6);
-var_dump($value)."<br>";
+var_dump($value);
+
+echo "<br>";
 
 //Local , Global , Static Scope In Function
 $x=2;
@@ -61,6 +65,41 @@ function calc3()
 calc3();
 //calc3();
 //calc3();
+
+//some internal built in functions
+$a = "hello world!";
+echo str_word_count($a)."<br>";
+
+$a2 = ['php','dart'];
+echo count($a2)."<br>";
+
+$a3 = "welcome to dart";
+echo str_replace('dart', 'php', $a3)."<br>";
+
+//explode string to array
+$line = "Ali,Mohamed,Kareem";
+$names = explode(",", $line);
+print_r($names);
+
+echo "<br>";
+
+$text = "welcome to php world";
+$parts = explode(" ", $text);
+echo $parts[0]."<br>"; // welcome
+echo $parts[1]."<br>"; // to
+echo $parts[2]."<br>"; // php
+
+//implode array to string
+$arr = ['Ali', 'Mohamed', 'Kareem'];
+$result = implode(" - ", $arr);
+echo $result;
+echo "<br>";
+$text2 = "###welcome###";
+echo trim($text2, "#")."<br>";
+
+echo strtoupper($text)."<br>";
+echo strtolower($text)."<br>";
+echo strlen($text)."<br>";
 
 //-------------------------
 
