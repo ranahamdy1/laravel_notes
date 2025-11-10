@@ -447,3 +447,9 @@ DB::table('users')->insert([
 
 ## ⚡ 31- Print...
 ![print](images/print.png)
+
+## ⚡ 32- (=, ==, ===)
+![equal](images/equal.png)
+- (=) -> set value
+- (==) -> check the value
+- (===) -> check the value and data type
