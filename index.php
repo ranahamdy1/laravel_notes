@@ -140,6 +140,26 @@ switch ($day) {
     default:
         echo "Just another day.";
 }
+echo "<br>";
+
+//for , foreach loop in php
+$c = 2;
+for($i = 0; $i < $c; $i++)
+{
+    echo $i."<br>";
+}
+
+$arra =['php','33'];
+foreach ($arra as $value)
+{
+    echo $value."<br>";
+}
+
+
+
+
+
+
 
 
 //-------------------------
