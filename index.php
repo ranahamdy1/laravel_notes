@@ -154,8 +154,30 @@ foreach ($arra as $value)
 {
     echo $value."<br>";
 }
+echo "<br>";
 
+//Global Variables Superglobals
 
+echo $_SERVER['PHP_SELF']."<br>";
+//echo $_GET['name']."<br>";
+
+//Superglobals $_FILES
+//move_uploaded_file($_FILES['myfile']['tmp_name'], "uploads/" . $_FILES['myfile']['name']);
+//Superglobals $_SESSION
+//Superglobals $_COOKIE
+
+//Magic Constants
+/*
+ *
+ * 1- echo __LINE__; //يرجع رقم السطر اللي انت فيه.
+ * 2- echo __FILE__; //يرجع المسار الكامل للملف الحالي.
+ * 3- echo __DIR__; // يرجع مسار المجلد اللي فيه الملف.
+ * 4- __FUNCTION__ // يرجع اسم الدالة اللي انت بداخلها.
+ * 5- __CLASS__  //يرجع اسم الـ Class.
+ * 6- __METHOD__ // يرجع اسم الميثود بالكامل (class + function).
+ * 7- __TRAIT__
+ * 8- __NAMESPACE__
+*/
 
 
 
