@@ -225,6 +225,29 @@ $authorPosts = Post::byAuthor(5)->get();
 ## ⚡ 11-  Trait
 - عبارة عن وسيلة لإعادة استخدام الكود بين الكلاسات
 - بيشبه الـ "mixin" → يعني تقدر تكتب دوال (methods) في ملف واحد وتستخدمها في أي كلاس تاني عن طريق use.
+- بيحل مشكلة multiple inheritance اللي مش موجودة في PHP.
+```php
+trait Logger {
+    public function log($message) {
+        echo "Log: $message";
+    }
+}
+
+class User {
+    use Logger;
+}
+
+class Product {
+    use Logger;
+}
+
+$user = new User();
+$user->log("User created");
+
+$product = new Product();
+$product->log("Product created");
+
+```
 ## ⚡ 12-  Observer class
 - هو كلاس بيراقب (observe) أحداث Eloquent Models
 - بيوفرلك Events زي: creating, created, updating, updated, deleting, deleted, وهكذا
