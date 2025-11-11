@@ -1,5 +1,5 @@
 <?php
-
+//class - object
 class Student{
     public $name = 'rana';
     public $age = '23';
