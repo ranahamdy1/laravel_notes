@@ -67,7 +67,7 @@ public function user()
 ```
 ### 3- Many-to-Many:
 - مثال: Students يدرسون في Courses، وكل Course له طلاب كُثر.
-  
+
 ```php
 // students table
 Schema::create('students', function (Blueprint $table) {
@@ -112,7 +112,7 @@ public function students()
 
 - cart need product
 - cart has forign key(product_id)
-- one product can be found in many cart (one to many) 
+- one product can be found in many cart (one to many)
 - cart has one product (one to one)
 - we take big relation (one to many)
 #### 1- كل Cart فيه منتج واحد بس → من جهة Cart = belongsTo(Product).
@@ -209,7 +209,7 @@ php artisan make:controller PostController --resource
 ```
 Route::resource('posts', PostController::class);
 ```
-## ⚡ 10-  Query Scopes 
+## ⚡ 10-  Query Scopes
 - هي طريقة لتعريف شروط جاهزة لإعادة استخدامها على استعلامات الـ Eloquent، بدل ما تكتب نفس الشرط في كل مرة
 - ببساطة هي فلتر أو شرط جاهز نقدر نطبقه على الـ Model بسهولة
 ```
@@ -225,6 +225,29 @@ $authorPosts = Post::byAuthor(5)->get();
 ## ⚡ 11-  Trait
 - عبارة عن وسيلة لإعادة استخدام الكود بين الكلاسات
 - بيشبه الـ "mixin" → يعني تقدر تكتب دوال (methods) في ملف واحد وتستخدمها في أي كلاس تاني عن طريق use.
+- بيحل مشكلة multiple inheritance اللي مش موجودة في PHP.
+```php
+trait Logger {
+    public function log($message) {
+        echo "Log: $message";
+    }
+}
+
+class User {
+    use Logger;
+}
+
+class Product {
+    use Logger;
+}
+
+$user = new User();
+$user->log("User created");
+
+$product = new Product();
+$product->log("Product created");
+
+```
 ## ⚡ 12-  Observer class
 - هو كلاس بيراقب (observe) أحداث Eloquent Models
 - بيوفرلك Events زي: creating, created, updating, updated, deleting, deleted, وهكذا
@@ -264,7 +287,7 @@ $users = User::where('active', 1)
 - وصف عام لكل الجداول والاعمده
 - يصف هيكل الجداول والأعمدة والمفاتيح
 - مثلا لو قىولنا ال Blog is schema يقصد هو ال هيبقي فيه كل حاجه هو الاساس ال هيوضح الجداول وكده
-## ⚡ 16-  Guard 
+## ⚡ 16-  Guard
 - تحديد طريقة مصادقة (Authentication) المستخدم.
 - منين هنجيب بياناته (من أي Driver أو Provider).
 - إزاي نتحقق إنه مسجّل دخول.
@@ -339,11 +362,11 @@ class CategoriesController extends Controller
 php artisan storage:link
 ```
 - هو بيعمل رابط رمزي (symbolic link) بين مجلد
-storage/app/public
-و
-public/storage
+  storage/app/public
+  و
+  public/storage
 - يعني أي ملف ترفعه إلى storage/app/public، يقدر المستخدم يوصل له من خلال الرابط العام
-## ⚡ 21- Repository and Service patterns 
+## ⚡ 21- Repository and Service patterns
 - نمط Repository يقوم بعزل منطق الوصول للبيانات بحيث لا تتعامل الـ Controllers أو الـ Services مباشرة مع قاعدة البيانات.
 - نمط Service يحتوي على منطق الأعمال (Business Logic)، ليبقى الـ Controller نظيفًا وخفيفًا.
 
@@ -394,7 +417,7 @@ Route::resource('users', UserController::class);
 - 2-ال implode : بتحول ال Array الي String
 ## ⚡ 26- Tinker
 - هو REPL (Read–Eval–Print Loop) مبني على PsySH مدمج مع Laravel. يخلّيك تكتب أوامر PHP وتنفذها فورًا داخل بيئة التطبيق (مع Models، Facades، والـ container). مفيد للتجارب السريعة، تعديل بيانات، اختبار كود، أو تنفيذ أوامر صغيرة بدون إنشاء ملفات مؤقتة.
-- يعتبر ذي postman بس كونسول (حاجه سريعه كده) 
+- يعتبر ذي postman بس كونسول (حاجه سريعه كده)
 ```
 php artisan tinker
 ```
@@ -417,7 +440,7 @@ $user->email = 'ahmed@example.com';
 $user->save();
 ```
 2- ال Query Builder : هو أداة تانية في Laravel تتيح لك كتابة استعلامات SQL باستخدام PHP، لكن بدون التعامل مع الموديلات أو الكائنات.
-- دي بتكون مع ال tables يعني DB::table('users') 
+- دي بتكون مع ال tables يعني DB::table('users')
 ```
 // استرجاع كل المستخدمين
 $users = DB::table('users')->get();
@@ -433,7 +456,7 @@ DB::table('users')->insert([
 ```
 ## ⚡ 28- Fortify package
 - باكدج كويسه لما يكون عندي users and admins
-- نظام المصادقة (Authentication) 
+- نظام المصادقة (Authentication)
 ## ⚡ 29- Cache & Session
 ![Cache_Session](images/cache.png)
 - مثال: في تطبيق تحويل عملات:
