@@ -476,3 +476,37 @@ DB::table('users')->insert([
 - (=) -> set value
 - (==) -> check the value
 - (===) -> check the value and data type
+
+## ⚡ 33- Filament
+- دي Package / Framework جاهزة بوجودها بتساعدك تعمل لوحة تحكم (Admin Panel) قوية وسريعة من غير ما تكتب كود كتير.
+- عبارة عن لوحة تحكم جاهزة مبنية على Laravel و Tailwind،
+- الخطوات :
+```php
+1- composer require filament/filament:"^4.0"
+```
+```php
+2- php artisan filament:install --panels
+```
+```php
+3- php artisan make:filament-user
+لو عامله seeder مثلا مش لازم دا
+```
+```php
+4- php artisan vendor:publish --tag=filament-config
+```
+```php
+5- php artisan make:filament-resource ModelName --generate
+```
+#### filament custom page (seeting page for ex)
+```php
+1- php artisan make:filament-page Settings
+```
+-ده هيعمل:
+
+1- كلاس للصفحة في:
+app/Filament/Pages/SettingsPage.php
+
+2- فيو للصفحة في:
+resources/views/filament/pages/settings-page.blade.php
+
+- [READ-DOCS](https://filamentphp.com/docs/4.x/introduction/installation)
