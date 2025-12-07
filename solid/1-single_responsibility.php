@@ -2,28 +2,28 @@
 
 class User
 {
-    private $name;
+    private string $name;
 
-    public function __construct($name)
+    public function __construct(string $name)
     {
         $this->name = $name;
-
     }
 
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
 }
 
-class UsersControllers
+class UserPrinter
 {
-    public function create(User $user)
+    public function printName(User $user): void
     {
-        return $user->getName();
+        echo $user->getName();
     }
 }
 
-$users = new UsersControllers();
-$user = new User('Rana');
-echo $users->create($user);
+$user = new User("Rana");
+$printer = new UserPrinter();
+
+$printer->printName($user);
