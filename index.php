@@ -179,4 +179,40 @@ echo $_SERVER['PHP_SELF']."<br>";
  * 8- __NAMESPACE__
 */
 
+// Array in latravel
+
+/// 1- Indexed Array
+```php
+$colors = ['red', 'green', 'blue'];
+
+echo $colors[0]; // red
+```
+
+/// 2- Associative Array
+```php
+$user = [
+    'name' => 'Ahmed',
+    'email' => 'ahmed@test.com',
+    'age' => 25
+];
+
+echo $user['name']; // Ahmed
+```
+
+/// 3- Multidimensional Array
+```php
+$users = [
+    [
+        'name' => 'Ali',
+        'email' => 'ali@test.com',
+    ],
+    [
+        'name' => 'Sara',
+        'email' => 'sara@test.com',
+    ]
+];
+
+echo $users[0]['name']; // Ali
+```
+
 ?>
