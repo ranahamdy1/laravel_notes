@@ -180,27 +180,19 @@ echo $_SERVER['PHP_SELF']."<br>";
 */
 
 // Array in latravel
-
-/// 1- Indexed Array
-```php
+// 1- Indexed Array [قائمة قيم مرقّمة]
 $colors = ['red', 'green', 'blue'];
+echo $colors[0]."<br>";
 
-echo $colors[0]; // red
-```
-
-/// 2- Associative Array
-```php
+// 2- Associative Array [مفاتيح نصية وقيم]
 $user = [
     'name' => 'Ahmed',
     'email' => 'ahmed@test.com',
     'age' => 25
 ];
+echo $user['name']."<br>";
 
-echo $user['name']; // Ahmed
-```
-
-/// 3- Multidimensional Array
-```php
+// 3- Multidimensional Array [مصفوفة داخل مصفوفة]
 $users = [
     [
         'name' => 'Ali',
@@ -211,8 +203,6 @@ $users = [
         'email' => 'sara@test.com',
     ]
 ];
-
-echo $users[0]['name']; // Ali
-```
+echo $users[0]['name']."<br>";
 
 ?>
