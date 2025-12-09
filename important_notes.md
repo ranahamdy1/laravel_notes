@@ -510,3 +510,42 @@ app/Filament/Pages/SettingsPage.php
 resources/views/filament/pages/settings-page.blade.php
 
 - [READ-DOCS](https://filamentphp.com/docs/4.x/introduction/installation)
+
+## ⚡ 34- Transaction
+- هي طريقة تضمن إن مجموعة استعلامات على قاعدة البيانات تتم بشكل كامل أو لا تتم نهائيًا.
+- بتستخدمها لما يكون عندك أكتر من خطوة مرتبطة ببعض
+- كل العمليات تنجح مع بعض أو تفشل مع بعض.
+- مثال: عملية دفع :
+```php
+use Illuminate\Support\Facades\DB;
+
+public function pay(Request $request)
+{
+    $userId = auth()->id();
+    $amount = 500;
+
+    DB::transaction(function () use ($userId, $amount) {
+
+        // 1️⃣ تسجيل الدفع
+        $payment = Payment::create([
+            'user_id' => $userId,
+            'amount'  => $amount,
+            'status'  => 'success',
+        ]);
+
+        // 2️⃣ تحديث الطلب ليصبح مدفوع
+        Order::where('user_id', $userId)
+            ->where('status', 'pending')
+            ->update(['status' => 'paid']);
+
+    });
+
+    return response()->json(['message' => 'Payment successful']);
+}
+```
+تسجيل الفلوس اتدفعت ✅
+
+تحديث حالة الطلب ✅
+
+لو واحدة نجحت والتانية فشلت → مينفعش
+عشان كده لازم ينجحوا مع بعض أو يفشلوا مع بعض.
