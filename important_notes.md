@@ -106,33 +106,8 @@ public function students()
 ```
 
 
-## ⚡ 2-  if i have (cart & product):
+## ⚡ 2- 
 
-![cart_product](images/cart_product.png)
-
-- cart need product
-- cart has forign key(product_id)
-- one product can be found in many cart (one to many)
-- cart has one product (one to one)
-- we take big relation (one to many)
-#### 1- كل Cart فيه منتج واحد بس → من جهة Cart = belongsTo(Product).
-#### 2- نفس المنتج ممكن يكون موجود في أكتر من Cart → من جهة Product = hasMany(Cart).
-
-- إذن في Laravel Models:
-```
-in Cart.php:
-public function product()
-{
-    return $this->belongsTo(Product::class);
-}
-```
-```
-in Product.php:
-public function carts()
-{
-    return $this->hasMany(Cart::class);
-}
-```
 - ال belongsTo يتحط في الـ Model اللي بيحتوي على الـ foreign key.
 - ال hasMany يتحط في الـ Model اللي بيتم الإشارة ليه بالـ foreign key.
 
