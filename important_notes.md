@@ -543,4 +543,9 @@ $user = User::create([
 $token = $user->createToken('postman')->plainTextToken;
 $token  
 ```
-
+## ⚡ 36- Store the auth token once and use it automatically in all requests [in postman]
+- In login -> script
+```php
+var jsonData = pm.response.json();
+pm.environment.set("token", jsonData.data.token);
+```
