@@ -549,3 +549,23 @@ public function pay(Request $request)
 
 لو واحدة نجحت والتانية فشلت → مينفعش
 عشان كده لازم ينجحوا مع بعض أو يفشلوا مع بعض.
+## ⚡ 35- Create user in Tinker
+1-
+```php
+php artisan tinker
+```
+2-
+```php
+$user = User::create([
+    'name' => 'Test User',
+    'email' => 'phone@test.com',
+    'phone' => '01012345678',
+    'password' => bcrypt('password123'),
+]);
+```
+3-
+```php
+$token = $user->createToken('postman')->plainTextToken;
+$token  
+```
+
