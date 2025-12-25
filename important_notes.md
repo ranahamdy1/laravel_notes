@@ -279,8 +279,37 @@ $admin = Auth::guard('admin')->user();
 ## ⚡ 18-  $fillable & $guarded
 - $fillable : defines which fields are allowed for mass assignment (هيسمح إنك تضيف أو تحدّث البيانات لهذه الحقول فقط)
 - $guarded : defines which fields are NOT allowed for mass assignment. (يمنع فقط الحقول اللي هنا، والباقي مسموح)
+- $casts : Defines how model attributes should be converted when retrieving or setting data from the database - To ensure attributes are returned in the correct data type
 
-## ⚡ 19-  API Resource
+## ⚡ 19- casts vs Accessors & Mutators
+- ال casts : ده خاصية في الموديل بتحدد نوع البيانات اللي Laravel هيحوّلها تلقائيًا لما تجيب البيانات من قاعدة البيانات أو تحطها فيها.
+- ال Accessors: طريقة لتعديل قيمة الحقل قبل ما يتم ارجاعها من الموديل.
+- ال Mutators: طريقة لتعديل قيمة الحقل قبل تخزينها في قاعدة البيانات. 
+```php
+// casts
+protected $casts = [
+    'is_active' => 'boolean',
+    'settings'  => 'array',
+];
+
+//--------------
+class User extends Model
+{
+    // Accessor
+    public function getNameAttribute($value)
+    {
+        return ucfirst($value); // أول حرف كبير
+    }
+
+    // Mutator
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = bcrypt($value); // تشفير الباسورد قبل التخزين
+    }
+}
+```
+## ⚡ 20-  API Resource
+
 - بدل ما ترجع البيانات كما هي من قاعدة البيانات، يمكنك التحكم في شكلها النهائي الذي سيراه المستخدم أو التطبيق.
 - مثلا فيه بيانات مثل:
 ```php
@@ -332,7 +361,7 @@ class CategoriesController extends Controller
 }
 
 ```
-## ⚡ 20-
+## ⚡ 21-
 ```php
 php artisan storage:link
 ```
@@ -341,7 +370,7 @@ php artisan storage:link
   و
   public/storage
 - يعني أي ملف ترفعه إلى storage/app/public، يقدر المستخدم يوصل له من خلال الرابط العام
-## ⚡ 21- Repository and Service patterns
+## ⚡ 22- Repository and Service patterns
 - نمط Repository يقوم بعزل منطق الوصول للبيانات بحيث لا تتعامل الـ Controllers أو الـ Services مباشرة مع قاعدة البيانات.
 - نمط Service يحتوي على منطق الأعمال (Business Logic)، ليبقى الـ Controller نظيفًا وخفيفًا.
 
@@ -355,7 +384,7 @@ php artisan storage:link
 
 الكود يصبح سهل الصيانة، الاختبار، وقابل لتغيير التنفيذ بدون التأثير على بقية التطبيق.
 
-## ⚡ 22- Layered Architecture
+## ⚡ 23- Layered Architecture
 ![layered_arch](images/layered_arch.png)
 
 🧭 الفكرة ببساطة:
@@ -366,7 +395,7 @@ php artisan storage:link
 - ال Entity: تمثل الكيان الحقيقي في النظام.
 > العلاقات بين الطبقات اتجاه واحد فقط (من الأعلى للأسفل)، يعني الـController يعتمد على الـService، والـService يعتمد على الـRepository، لكن الـRepository ما يعرفش عن الـService أو الـController.
 
-## ⚡ 23- Resource Controllers
+## ⚡ 24- Resource Controllers
 - هي نوع خاص من الـControllers يوفر سبع دوال جاهزة للتعامل مع CRUD (إنشاء – قراءة – تحديث – حذف).
 ```
 php artisan make:controller UserController --resource
@@ -385,19 +414,19 @@ public function destroy($id) // حذف
 ```
 Route::resource('users', UserController::class);
 ```
-## ⚡ 24- Soft Deletes
+## ⚡ 25- Soft Deletes
 - بدل ما يتم مسح السجل من قاعدة البيانات نهائيًا، Laravel بيحط تاريخ الحذف في عمود deleted_at، وبكده يعتبر السجل محذوف ظاهريًا لكنه موجود فعلًا في قاعدة البيانات.
-## ⚡ 25- explode & implode
+## ⚡ 26- explode & implode
 - 1-ال explode : بتحول ال String الي Array
 - 2-ال implode : بتحول ال Array الي String
-## ⚡ 26- Tinker
+## ⚡ 27- Tinker
 - هو REPL (Read–Eval–Print Loop) مبني على PsySH مدمج مع Laravel. يخلّيك تكتب أوامر PHP وتنفذها فورًا داخل بيئة التطبيق (مع Models، Facades، والـ container). مفيد للتجارب السريعة، تعديل بيانات، اختبار كود، أو تنفيذ أوامر صغيرة بدون إنشاء ملفات مؤقتة.
 - يعتبر ذي postman بس كونسول (حاجه سريعه كده)
 ```
 php artisan tinker
 ```
 - جرب اي حاجه بقي وفي الاخر exit
-## ⚡ 27- Eloquent ORM و Query Builder
+## ⚡ 28- Eloquent ORM و Query Builder
 1- ال Eloquent ORM : هو نظام ORM مدمج في Laravel يسمح لك بالتعامل مع قاعدة البيانات باستخدام الكائنات (Objects) بدلًا من كتابة SQL بشكل مباشر.
 - يعني كل جدول في قاعدة البيانات بيكون له Model يمثل البيانات فيه، وكل صف (Row) بيكون كائن (Object) من هذا الموديل.
 - يعني دي بتكون مع الموديل USER
@@ -429,30 +458,30 @@ DB::table('users')->insert([
     'email' => 'ahmed@example.com'
 ]);
 ```
-## ⚡ 28- Fortify package
+## ⚡ 29- Fortify package
 - باكدج كويسه لما يكون عندي users and admins
 - نظام المصادقة (Authentication)
-## ⚡ 29- Cache & Session
+## ⚡ 30- Cache & Session
 ![Cache_Session](images/cache.png)
 - مثال: في تطبيق تحويل عملات:
 - ال Session: ممكن تخزن فيها آخر عملة اختارها المستخدم
 - ال Cache: ممكن تخزن فيها سعر الدولار مقابل الجنيه لمدة 24 ساعة لتقليل استعلامات الـ API.
-## ⚡ 30- Jobs & Queues
+## ⚡ 31- Jobs & Queues
 - ال Jobs معناها “مهمة” أو “عمل” بيتم تنفيذه في الخلفية (Background).
 - وده مفيد جدًا لما يكون عندك عملية بتاخد وقت طويل (زي إرسال إيميلات، رفع ملفات، معالجة صور...).
 - بدل ما المستخدم يستنى العملية دي تخلص، Laravel بيخليها تشتغل في الخلفية باستخدام الـ Queue.
 - الـ Queue (الطابور) هو نظام بيخزن المهام (jobs) و ينفذها واحدة ورا التانية بدون ما يبطّئ التطبيق.
 
-## ⚡ 31- Print...
+## ⚡ 32- Print...
 ![print](images/print.png)
 
-## ⚡ 32- (=, ==, ===)
+## ⚡ 33- (=, ==, ===)
 ![equal](images/equal.png)
 - (=) -> set value
 - (==) -> check the value
 - (===) -> check the value and data type
 
-## ⚡ 33- Filament
+## ⚡ 34- Filament
 - دي Package / Framework جاهزة بوجودها بتساعدك تعمل لوحة تحكم (Admin Panel) قوية وسريعة من غير ما تكتب كود كتير.
 - عبارة عن لوحة تحكم جاهزة مبنية على Laravel و Tailwind،
 - الخطوات :
@@ -486,7 +515,7 @@ resources/views/filament/pages/settings-page.blade.php
 
 - [READ-DOCS](https://filamentphp.com/docs/4.x/introduction/installation)
 
-## ⚡ 34- Transaction
+## ⚡ 35- Transaction
 - هي طريقة تضمن إن مجموعة استعلامات على قاعدة البيانات تتم بشكل كامل أو لا تتم نهائيًا.
 - بتستخدمها لما يكون عندك أكتر من خطوة مرتبطة ببعض
 - كل العمليات تنجح مع بعض أو تفشل مع بعض.
@@ -524,7 +553,7 @@ public function pay(Request $request)
 
 لو واحدة نجحت والتانية فشلت → مينفعش
 عشان كده لازم ينجحوا مع بعض أو يفشلوا مع بعض.
-## ⚡ 35- Create user in Tinker
+## ⚡ 36- Create user in Tinker
 1-
 ```php
 php artisan tinker
@@ -543,7 +572,7 @@ $user = User::create([
 $token = $user->createToken('postman')->plainTextToken;
 $token  
 ```
-## ⚡ 36- Store the auth token once and use it automatically in all requests [in postman]
+## ⚡ 37- Store the auth token once and use it automatically in all requests [in postman]
 - In login -> script
 ```php
 var jsonData = pm.response.json();
