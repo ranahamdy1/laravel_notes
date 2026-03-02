@@ -652,3 +652,6 @@ Route::resource('posts', PostController::class);
 - هو طريقة لربط جدولين أو أكثر في قاعدة البيانات بحيث نقدر نجيب بيانات مرتبطة ببعضها.
 ![layered_arch](images/join.png)
 
+## ⚡ 43- Interview Questions and Answers 
+- [READ](https://medium.com/@mr-osama-mustafa/50-php-laravel-interview-questions-and-answers-ddfa49ed546d)
+
