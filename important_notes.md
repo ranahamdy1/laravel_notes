@@ -578,3 +578,76 @@ $token
 var jsonData = pm.response.json();
 pm.environment.set("token", jsonData.data.token);
 ```
+## ⚡ 38- this vs self in PHP
+- ا this ->> بيمثل الـ object الحالي (instance) - يشاور على النسخة اللي اتعملت من الكلاس.
+```php
+class User {
+    public $name = "Ahmed";
+
+    public function getName() {
+        return $this->name;
+    }
+}
+
+$user = new User();
+echo $user->getName();
+```
+- ا self ->> بتشير إلى الكلاس نفسه مش الـ object.
+```php
+class User {
+    public static $count = 0;
+
+    public static function getCount() {
+        return self::$count;
+    }
+}
+
+echo User::getCount();
+- هنا مفيش object أصلاً.
+```
+
+## ⚡ 39- Service Provider 
+- الكلاس المسؤول عن تهيئة (boot) وتسجيل (register) الخدمات داخل التطبيق.
+- هو المسؤول عن تحضير كل حاجة Laravel يحتاجها قبل ما يشتغل التطبيق.
+- هو الكلاس اللي مسؤول عن تسجيل وتهيئة كل الخدمات والمكتبات اللي التطبيق يحتاجها قبل ما يشتغل.
+## ⚡ 40- Explain Request Lifecycle in Laravel.
+```php
+Request
+↓
+index.php
+↓
+Bootstrap App
+↓
+HTTP Kernel
+↓
+Middleware
+↓
+Routing
+↓
+Controller
+↓
+Model / Database
+↓
+View
+↓
+Response
+```
+## ⚡ 41- Route Resource
+- هو طريقة سريعة Laravel عشان تعرف كل المسارات (Routes) اللازمة لإدارة CRUD (إنشاء، قراءة، تعديل، حذف) لمورد معين بدون كتابة كل Route يدويًا.
+- لو عندك مورد اسمُه posts، بدل ما تكتب كل Route لحاله❌:
+```php
+Route::get('/posts', [PostController::class, 'index']);
+Route::get('/posts/create', [PostController::class, 'create']);
+Route::post('/posts', [PostController::class, 'store']);
+Route::get('/posts/{id}', [PostController::class, 'show']);
+Route::get('/posts/{id}/edit', [PostController::class, 'edit']);
+Route::put('/posts/{id}', [PostController::class, 'update']);
+Route::delete('/posts/{id}', [PostController::class, 'destroy']);
+```
+- ممكن تكتبها ببساطة✔:
+```php
+Route::resource('posts', PostController::class);
+```
+## ⚡ 42- 
+
+
