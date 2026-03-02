@@ -648,6 +648,7 @@ Route::delete('/posts/{id}', [PostController::class, 'destroy']);
 ```php
 Route::resource('posts', PostController::class);
 ```
-## ⚡ 42- 
-
+## ⚡ 42- SQL Joins
+- هو طريقة لربط جدولين أو أكثر في قاعدة البيانات بحيث نقدر نجيب بيانات مرتبطة ببعضها.
+![layered_arch](images/join.png)
 
