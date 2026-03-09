@@ -1,3 +1,5 @@
+## laravel_notes
+
 ## ⚡ 1-  Types of relationships in a database:
 ### 1- One-to-One:
 - مثال: كل User له Profile واحد فقط.
