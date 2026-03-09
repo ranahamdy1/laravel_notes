@@ -1,5 +1,3 @@
-## laravel_notes
-
 1. To open Local Server
    ```
    php -S localhost:8080
