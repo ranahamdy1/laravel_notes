@@ -696,3 +696,8 @@ video_id
 commentable_id
 commentable_type
 ```
+- 🧠 الفكرة ببساطة
+
+commentable_id → رقم الـ Post أو Video
+
+commentable_type → نوعه (Post أو Video)
