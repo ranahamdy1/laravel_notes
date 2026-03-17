@@ -656,3 +656,43 @@ Route::resource('posts', PostController::class);
 
 ## ⚡ 43- Interview Questions and Answers 
 - [READ](https://medium.com/@mr-osama-mustafa/50-php-laravel-interview-questions-and-answers-ddfa49ed546d)
+
+## ⚡ 44- A polymorphic relationship
+- معناها إن موديل واحد يقدر يرتبط بأكتر من موديل مختلف باستخدام علاقة واحدة بدل ما تعمل علاقات منفصلة لكل نوع.
+- بدل ما تقول:
+
+Post ليه comments
+
+Video ليه comments
+
+وتعمل جدولين أو علاقتين…
+
+❌ ده غلط/مرهق
+✔️ الصح: تعمل علاقة واحدة تخلي الـ Comment يقدر يخص:
+
+Post
+
+Video
+
+- 🎯 مثال عملي
+عندك:
+
+Post
+
+Video
+
+Comment
+
+عايزين:
+
+الـ Comment يبقى ممكن يخص Post أو Video
+- بدل ما تحط:
+```
+post_id
+video_id
+```
+- ✔️ بنستخدم:
+```
+commentable_id
+commentable_type
+```
