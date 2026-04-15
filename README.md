@@ -701,3 +701,8 @@ commentable_type
 commentable_id → رقم الـ Post أو Video
 
 commentable_type → نوعه (Post أو Video)
+
+## ⚡ 45- JWT (JSON Web Token):
+- ال JWT اختصار لـ JSON Web Token، وهو طريقة آمنة لتبادل البيانات بين الـ client (زي الموبايل أو الفرونت) والـ server (Laravel مثلًا) باستخدام Token بدل الـ session.
+- الـ JWT بيتكون من 3 أجزاء:
+- header - payload - signature
