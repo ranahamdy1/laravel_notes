@@ -173,11 +173,14 @@ $app->put('name', 'Rana', 22);
 ```
 Cache::put('name', 'Rana', 22);
 ```
-## ⚡ 7- seeder -> ادخال بيانات
+## ⚡ 7-  Service Container 
+- هو عبارة عن صندوق مسؤول عن إنشاء الـ Objects وإدارة الـ Dependencies بتاعتها.
+- بمعنى أبسط: بيساعد Laravel يعرف إزاي ينشئ الـ Classes اللي مشروعك محتاجها، ويوفرها لك بدل ما تعملها بنفسك باستخدام new
+## ⚡ 8- seeder -> ادخال بيانات
 - هو وسيلة لإدخال بيانات تجريبية أو افتراضية داخل قاعدة البيانات بشكل تلقائي أثناء التطوير أو الاختبار.
-## ⚡ 8- factory -> مولد بيانات
+## ⚡ 9- factory -> مولد بيانات
 - تُستخدم لتوليد بيانات تجريبية (Dummy Data) بشكل تلقائي، وغالبًا يتم استخدامها مع Seeders أثناء التطوير أو الاختبار ومع الموديل.
-## ⚡ 9- Resource Controllers
+## ⚡ 10- Resource Controllers
 - هو طريقة سريعة وسهلة لإنشاء Controller يدعم كل العمليات الأساسية للـ CRUD (Create, Read, Update, Delete) بدون كتابة كل دالة يدوياً
 ```
 php artisan make:controller PostController --resource
@@ -186,7 +189,7 @@ php artisan make:controller PostController --resource
 ```
 Route::resource('posts', PostController::class);
 ```
-## ⚡ 10-  Query Scopes
+## ⚡ 11-  Query Scopes
 - هي طريقة لتعريف شروط جاهزة لإعادة استخدامها على استعلامات الـ Eloquent، بدل ما تكتب نفس الشرط في كل مرة
 - ببساطة هي فلتر أو شرط جاهز نقدر نطبقه على الـ Model بسهولة
 ```
@@ -201,7 +204,7 @@ $authorPosts = Post::byAuthor(5)->get();
 - لاحظ: الاسم يبدأ بـ scope، لكن عند الاستخدام نحذف scope ونكتب فقط ما بعدها (byAuthor).
 - ال Query scope بتستعمله وقت ما تحتاجه، بتضيفه على الاستعلام. أما الGlobal scope بيتطبق تلقائي على كل استعلام للـموديل ده من غير ما تنادي عليه.
 
-## ⚡ 11-  Trait
+## ⚡ 12-  Trait
 - عبارة عن وسيلة لإعادة استخدام الكود بين الكلاسات
 - بيشبه الـ "mixin" → يعني تقدر تكتب دوال (methods) في ملف واحد وتستخدمها في أي كلاس تاني عن طريق use.
 - بيحل مشكلة multiple inheritance اللي مش موجودة في PHP.
@@ -227,7 +230,7 @@ $product = new Product();
 $product->log("Product created");
 
 ```
-## ⚡ 12-  Observer class
+## ⚡ 13-  Observer class
 - هو كلاس بيراقب (observe) أحداث Eloquent Models
 - بيوفرلك Events زي: creating, created, updating, updated, deleting, deleted, وهكذا
 - الفكرة إنك تحط logic معين يتنفذ أوتوماتيك مع حصول أي حدث على الموديل
@@ -235,7 +238,7 @@ $product->log("Product created");
 ```
 php artisan make:observer UserObserver --model=User
 ```
-## ⚡ 13-  Eloquent ORM
+## ⚡ 14-  Eloquent ORM
 - هو الـ Object Relational Mapper الافتراضي في Laravel.
 - معناه ببساطة: بدل ما تكتب SQL Queries طويلة وصعبة، تقدر تتعامل مع قاعدة البيانات باستخدام كائنات (Objects) و Models في Laravel.
 - هو طبقة وسيطة بتخلي التعامل مع الجداول كأنه تعامل مع كائنات PHP.
@@ -255,18 +258,18 @@ $users = User::where('active', 1)
              ->take(10)
              ->get();
 ```
-## ⚡ 14-  SPA (Single Page Applications)
+## ⚡ 15-  SPA (Single Page Applications)
 - يعني: تطبيق ويب بيشتغل كله من صفحة واحدة (index.html).
 - بدل ما كل مرة المستخدم يفتح لينك يتعمل Reload كامل للصفحة → المتصفح بيحمّل جزء جديد (Component) بس، والباقي يفضل زي ما هو.
 - الهدف منه: إن الصفحة كلها تفضل واحدة، والتنقل بيكون داخلي بالـ JavaScript من غير Reload كامل.
 - الـ SPA هو موقع/تطبيق ويب تفاعلي بيشتغل كله من صفحة واحدة، بيفصل بين الـ Frontend (واجهة المستخدم) و الـ Backend (API)، وبيخلي التجربة شبه الموبايل أبلكيشن.
 - Ex:
 - مثل Gmail Web (اللي معمول بـ SPA) → تفتح Inbox وتدخل Email من غير ما الصفحة تعيد تحميل نفسها.
-## ⚡ 15-  Schema
+## ⚡ 16-  Schema
 - وصف عام لكل الجداول والاعمده
 - يصف هيكل الجداول والأعمدة والمفاتيح
 - مثلا لو قىولنا ال Blog is schema يقصد هو ال هيبقي فيه كل حاجه هو الاساس ال هيوضح الجداول وكده
-## ⚡ 16-  Guard
+## ⚡ 17-  Guard
 - تحديد طريقة مصادقة (Authentication) المستخدم.
 - منين هنجيب بياناته (من أي Driver أو Provider).
 - إزاي نتحقق إنه مسجّل دخول.
@@ -278,14 +281,14 @@ $users = User::where('active', 1)
 // جلب المستخدم الحالي:
 $admin = Auth::guard('admin')->user();
 ```
-## ⚡ 17-  Spatie package
+## ⚡ 18-  Spatie package
 - باكدج لل permissions مثلا لل admin و ال user ...
-## ⚡ 18-  $fillable & $guarded
+## ⚡ 19-  $fillable & $guarded
 - $fillable : defines which fields are allowed for mass assignment (هيسمح إنك تضيف أو تحدّث البيانات لهذه الحقول فقط)
 - $guarded : defines which fields are NOT allowed for mass assignment. (يمنع فقط الحقول اللي هنا، والباقي مسموح)
 - $casts : Defines how model attributes should be converted when retrieving or setting data from the database - To ensure attributes are returned in the correct data type
 
-## ⚡ 19- casts vs Accessors & Mutators
+## ⚡ 20- casts vs Accessors & Mutators
 - ال casts : ده خاصية في الموديل بتحدد نوع البيانات اللي Laravel هيحوّلها تلقائيًا لما تجيب البيانات من قاعدة البيانات أو تحطها فيها.
 - ال Accessors: يُستخدم لتعديل قيمة الحقل عند قراءتها من قاعدة البيانات - مثال: لو الاسم مخزن بحروف صغيرة في قاعدة البيانات، وتريدين عرضه بحروف كبيرة - يشتغل عند قراءة البيانات (get).
 - ال Mutators: يُستخدم لتعديل قيمة الحقل قبل حفظها في قاعدة البيانات - مثال: تريدين حفظ الاسم دائماً بحروف صغيرة - يشتغل عند حفظ البيانات (set). 
@@ -312,7 +315,7 @@ class User extends Model
     }
 }
 ```
-## ⚡ 20-  API Resource
+## ⚡ 21-  API Resource
 
 - بدل ما ترجع البيانات كما هي من قاعدة البيانات، يمكنك التحكم في شكلها النهائي الذي سيراه المستخدم أو التطبيق.
 - مثلا فيه بيانات مثل:
@@ -365,7 +368,7 @@ class CategoriesController extends Controller
 }
 
 ```
-## ⚡ 21-
+## ⚡ 22-
 ```php
 php artisan storage:link
 ```
@@ -374,7 +377,7 @@ php artisan storage:link
   و
   public/storage
 - يعني أي ملف ترفعه إلى storage/app/public، يقدر المستخدم يوصل له من خلال الرابط العام
-## ⚡ 22- Repository and Service patterns
+## ⚡ 23- Repository and Service patterns
 - نمط Repository يقوم بعزل منطق الوصول للبيانات بحيث لا تتعامل الـ Controllers أو الـ Services مباشرة مع قاعدة البيانات.
 - نمط Service يحتوي على منطق الأعمال (Business Logic)، ليبقى الـ Controller نظيفًا وخفيفًا.
 
@@ -388,7 +391,7 @@ php artisan storage:link
 
 الكود يصبح سهل الصيانة، الاختبار، وقابل لتغيير التنفيذ بدون التأثير على بقية التطبيق.
 
-## ⚡ 23- Layered Architecture
+## ⚡ 24- Layered Architecture
 ![layered_arch](images/layered_arch.png)
 
 🧭 الفكرة ببساطة:
@@ -399,7 +402,7 @@ php artisan storage:link
 - ال Entity: تمثل الكيان الحقيقي في النظام.
 > العلاقات بين الطبقات اتجاه واحد فقط (من الأعلى للأسفل)، يعني الـController يعتمد على الـService، والـService يعتمد على الـRepository، لكن الـRepository ما يعرفش عن الـService أو الـController.
 
-## ⚡ 24- Resource Controllers
+## ⚡ 25- Resource Controllers
 - هي نوع خاص من الـControllers يوفر سبع دوال جاهزة للتعامل مع CRUD (إنشاء – قراءة – تحديث – حذف).
 ```
 php artisan make:controller UserController --resource
@@ -418,19 +421,19 @@ public function destroy($id) // حذف
 ```
 Route::resource('users', UserController::class);
 ```
-## ⚡ 25- Soft Deletes
+## ⚡ 26- Soft Deletes
 - بدل ما يتم مسح السجل من قاعدة البيانات نهائيًا، Laravel بيحط تاريخ الحذف في عمود deleted_at، وبكده يعتبر السجل محذوف ظاهريًا لكنه موجود فعلًا في قاعدة البيانات.
-## ⚡ 26- explode & implode
+## ⚡ 27- explode & implode
 - 1-ال explode : بتحول ال String الي Array
 - 2-ال implode : بتحول ال Array الي String
-## ⚡ 27- Tinker
+## ⚡ 28- Tinker
 - هو REPL (Read–Eval–Print Loop) مبني على PsySH مدمج مع Laravel. يخلّيك تكتب أوامر PHP وتنفذها فورًا داخل بيئة التطبيق (مع Models، Facades، والـ container). مفيد للتجارب السريعة، تعديل بيانات، اختبار كود، أو تنفيذ أوامر صغيرة بدون إنشاء ملفات مؤقتة.
 - يعتبر ذي postman بس كونسول (حاجه سريعه كده)
 ```
 php artisan tinker
 ```
 - جرب اي حاجه بقي وفي الاخر exit
-## ⚡ 28- Eloquent ORM و Query Builder
+## ⚡ 29- Eloquent ORM و Query Builder
 1- ال Eloquent ORM : هو نظام ORM مدمج في Laravel يسمح لك بالتعامل مع قاعدة البيانات باستخدام الكائنات (Objects) بدلًا من كتابة SQL بشكل مباشر.
 - يعني كل جدول في قاعدة البيانات بيكون له Model يمثل البيانات فيه، وكل صف (Row) بيكون كائن (Object) من هذا الموديل.
 - يعني دي بتكون مع الموديل USER
@@ -462,30 +465,30 @@ DB::table('users')->insert([
     'email' => 'ahmed@example.com'
 ]);
 ```
-## ⚡ 29- Fortify package
+## ⚡ 30- Fortify package
 - باكدج كويسه لما يكون عندي users and admins
 - نظام المصادقة (Authentication)
-## ⚡ 30- Cache & Session
+## ⚡ 31- Cache & Session
 ![Cache_Session](images/cache.png)
 - مثال: في تطبيق تحويل عملات:
 - ال Session: ممكن تخزن فيها آخر عملة اختارها المستخدم
 - ال Cache: ممكن تخزن فيها سعر الدولار مقابل الجنيه لمدة 24 ساعة لتقليل استعلامات الـ API.
-## ⚡ 31- Jobs & Queues
+## ⚡ 32- Jobs & Queues
 - ال Jobs معناها “مهمة” أو “عمل” بيتم تنفيذه في الخلفية (Background).
 - وده مفيد جدًا لما يكون عندك عملية بتاخد وقت طويل (زي إرسال إيميلات، رفع ملفات، معالجة صور...).
 - بدل ما المستخدم يستنى العملية دي تخلص، Laravel بيخليها تشتغل في الخلفية باستخدام الـ Queue.
 - الـ Queue (الطابور) هو نظام بيخزن المهام (jobs) و ينفذها واحدة ورا التانية بدون ما يبطّئ التطبيق.
 
-## ⚡ 32- Print...
+## ⚡ 33- Print...
 ![print](images/print.png)
 
-## ⚡ 33- (=, ==, ===)
+## ⚡ 34- (=, ==, ===)
 ![equal](images/equal.png)
 - (=) -> set value
 - (==) -> check the value
 - (===) -> check the value and data type
 
-## ⚡ 34- Filament
+## ⚡ 35- Filament
 - دي Package / Framework جاهزة بوجودها بتساعدك تعمل لوحة تحكم (Admin Panel) قوية وسريعة من غير ما تكتب كود كتير.
 - عبارة عن لوحة تحكم جاهزة مبنية على Laravel و Tailwind،
 - الخطوات :
@@ -519,7 +522,7 @@ resources/views/filament/pages/settings-page.blade.php
 
 - [READ-DOCS](https://filamentphp.com/docs/4.x/introduction/installation)
 
-## ⚡ 35- Transaction
+## ⚡ 36- Transaction
 - هي طريقة تضمن إن مجموعة استعلامات على قاعدة البيانات تتم بشكل كامل أو لا تتم نهائيًا.
 - بتستخدمها لما يكون عندك أكتر من خطوة مرتبطة ببعض
 - كل العمليات تنجح مع بعض أو تفشل مع بعض.
@@ -557,7 +560,7 @@ public function pay(Request $request)
 
 لو واحدة نجحت والتانية فشلت → مينفعش
 عشان كده لازم ينجحوا مع بعض أو يفشلوا مع بعض.
-## ⚡ 36- Create user in Tinker
+## ⚡ 37- Create user in Tinker
 1-
 ```php
 php artisan tinker
@@ -576,13 +579,13 @@ $user = User::create([
 $token = $user->createToken('postman')->plainTextToken;
 $token  
 ```
-## ⚡ 37- Store the auth token once and use it automatically in all requests [in postman]
+## ⚡ 38- Store the auth token once and use it automatically in all requests [in postman]
 - In login -> script
 ```php
 var jsonData = pm.response.json();
 pm.environment.set("token", jsonData.data.token);
 ```
-## ⚡ 38- this vs self in PHP
+## ⚡ 39- this vs self in PHP
 - ا this ->> بيمثل الـ object الحالي (instance) - يشاور على النسخة اللي اتعملت من الكلاس.
 ```php
 class User {
@@ -610,11 +613,11 @@ echo User::getCount();
 - هنا مفيش object أصلاً.
 ```
 
-## ⚡ 39- Service Provider 
+## ⚡ 40- Service Provider 
 - الكلاس المسؤول عن تهيئة (boot) وتسجيل (register) الخدمات داخل التطبيق.
 - هو المسؤول عن تحضير كل حاجة Laravel يحتاجها قبل ما يشتغل التطبيق.
 - هو الكلاس اللي مسؤول عن تسجيل وتهيئة كل الخدمات والمكتبات اللي التطبيق يحتاجها قبل ما يشتغل.
-## ⚡ 40- Explain Request Lifecycle in Laravel.
+## ⚡ 41- Explain Request Lifecycle in Laravel.
 ```php
 Request
 ↓
@@ -658,7 +661,7 @@ bootstrap/app.php
 
 8- إرجاع Response - يتم إرجاع View
 
-## ⚡ 41- Route Resource
+## ⚡ 42- Route Resource
 - هو طريقة سريعة Laravel عشان تعرف كل المسارات (Routes) اللازمة لإدارة CRUD (إنشاء، قراءة، تعديل، حذف) لمورد معين بدون كتابة كل Route يدويًا.
 - لو عندك مورد اسمُه posts، بدل ما تكتب كل Route لحاله❌:
 ```php
@@ -674,14 +677,14 @@ Route::delete('/posts/{id}', [PostController::class, 'destroy']);
 ```php
 Route::resource('posts', PostController::class);
 ```
-## ⚡ 42- SQL Joins
+## ⚡ 43- SQL Joins
 - هو طريقة لربط جدولين أو أكثر في قاعدة البيانات بحيث نقدر نجيب بيانات مرتبطة ببعضها.
 ![layered_arch](images/join.png)
 
-## ⚡ 43- Interview Questions and Answers 
+## ⚡ 44- Interview Questions and Answers 
 - [READ](https://medium.com/@mr-osama-mustafa/50-php-laravel-interview-questions-and-answers-ddfa49ed546d)
 
-## ⚡ 44- A polymorphic relationship
+## ⚡ 45- A polymorphic relationship
 - معناها إن موديل واحد يقدر يرتبط بأكتر من موديل مختلف باستخدام علاقة واحدة بدل ما تعمل علاقات منفصلة لكل نوع.
 - بدل ما تقول:
 
@@ -726,7 +729,7 @@ commentable_id → رقم الـ Post أو Video
 
 commentable_type → نوعه (Post أو Video)
 
-## ⚡ 45- JWT (JSON Web Token):
+## ⚡ 46- JWT (JSON Web Token):
 - ال JWT اختصار لـ JSON Web Token، وهو طريقة آمنة لتبادل البيانات بين الـ client (زي الموبايل أو الفرونت) والـ server (Laravel مثلًا) باستخدام Token بدل الـ session.
 - الـ JWT بيتكون من 3 أجزاء:
 - header - payload - signature
